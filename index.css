@@ -1,0 +1,38 @@
+body .col-10{
+    background-image: URL("https://vader.news/__export/1588965166057/sites/gadgets/img/2020/05/08/2-25193_pokemon-ball-transparent-background-transparent-background-pokeball-png.png_423682103.png");
+    background-repeat:no-repeat;
+    background-position:right;
+    background-attachment: fixed;
+    background-size:contain;
+    opacity:0.5;
+}
+
+.pagination{
+    margin:1%;
+}
+
+
+.list-group{
+    min-width: 120px;
+    margin-left:5%;
+}
+
+h1{
+    text-align: center;
+}
+
+ul{
+    position:relative;
+   
+}
+
+
+
+img{
+    
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: contain;
+    
+}
