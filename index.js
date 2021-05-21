@@ -13,6 +13,8 @@ function iniciar(offset = "0") {
   
 }
 
+
+
 function cargarPokemones(offset  = "0"){
 
 }
@@ -20,7 +22,7 @@ iniciar();
 
 function mostrarListadoPokemones(pokes) {
     const lista = document.createElement("div");
-    const columna = document.querySelector(".col-2")
+    const columna = document.querySelector(".col-sm-2")
     pokes.forEach(poke => {
         const item = document.createElement("a");
         item.href = "#";
