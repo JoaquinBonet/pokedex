@@ -6,23 +6,22 @@ function iniciar(offset = "0") {
         const totalPokemones = r.count;
         const results = r.results;
 
-        mostrarListadoPokemones(results);
-        crearItemsPaginacion(Math.ceil(totalPokemones / results.length))
+        
+        crearItemsPaginacion(Math.ceil(totalPokemones / results.length));
+        mostrarListadoPokemones(results)
+        
     });
 
   
 }
 
 
-
-function cargarPokemones(offset  = "0"){
-
-}
 iniciar();
 
 function mostrarListadoPokemones(pokes) {
-    const lista = document.createElement("div");
-    const columna = document.querySelector(".col-sm-2")
+    ocultarCargando();
+    const lista = document.createElement("div")
+    const columna = document.querySelector(".col-5")
     pokes.forEach(poke => {
         const item = document.createElement("a");
         item.href = "#";
@@ -50,19 +49,21 @@ function mostrarListadoPokemones(pokes) {
 
 }
 
-function obtenerDatosPokemon(nombre) {
-
+async function obtenerDatosPokemon(nombre) {
+    //eliminarCartelesCargando();
     mostrarTituloPokemon(nombre);
 
-    fetch(`https://pokeapi.co/api/v2/pokemon/${nombre}`).then(r => r.json()).then(r => {
+    await fetch(`https://pokeapi.co/api/v2/pokemon/${nombre}`).then(r => r.json()).then(r => {
         mostrarTipo(r.types),
-            mostrarHabilidades(r.abilities);
+        mostrarHabilidades(r.abilities);
         mostrarPeso(r.weight);
         mostrarImagen(r.sprites);
+        
 
 
 
     })
+    
 
 
 }
@@ -112,17 +113,18 @@ function mostrarHabilidades(habilidades) {
 
 function crearItemsPaginacion(items) {
     const pagination = document.querySelector(".pagination");
-    for (let i = 1; i < items; i++) {
+    for (let i = 1; i <= items; i++) {
         const item = document.createElement("li");
         item.classList.add("page-item");
 
         item.innerHTML = `<a class="page-link" href="#">${i}</a>`;
-        item.dataset.numero = i;
+        item.dataset.numero = i - 1;
         pagination.appendChild(item);
 
     }
-    const item = document.createElement("li");
-   
+    const primerItem = document.querySelector("li");
+    primerItem.classList.add("active");
+
     mostrarPagina();
 
 }
@@ -142,12 +144,13 @@ function mostrarPagina() {
 }
 
 function obtenerPokemonesEnPaginas(){
+  
     const listaAnterior = document.querySelector(".list-group")
     const paginaActual = document.querySelector(".page-item.active");
     let indice = paginaActual.dataset.numero;
     listaAnterior.remove();
-    fetch(URL + `?limit=60&offset=${indice * 60}`).then(r => r.json()).then(r => {
-        const totalPokemones = r.count;
+    mostrarCargando();
+    fetch(URL + `?limit=60&offset=${0 + (indice * 60)}`).then(r => r.json()).then(r => {
         const results = r.results;
         mostrarListadoPokemones(r.results)
     })
@@ -155,3 +158,23 @@ function obtenerPokemonesEnPaginas(){
 
 }
 
+function ocultarCargando(){
+    const cargando = document.querySelector("i");
+    cargando.classList.add("oculto")
+
+}
+
+function mostrarCargando(){
+    const cargando = document.querySelector("i");
+    cargando.classList.remove("oculto")
+
+}
+
+/*function eliminarCartelesCargando(){
+    const imgModal = document.querySelector(".modal img")
+    const modal = document.querySelector(".modal");
+    const textos = document.querySelectorAll(".modal i");
+    for(let i = textos.length-1; i >= 0; i--){
+        textos[i].remove();
+    }
+} */
