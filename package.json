@@ -1,5 +1,5 @@
 {
-  "name": "pokedex",
+  "name": "y",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,5 +10,18 @@
   "license": "ISC",
   "dependencies": {
     "bootstrap": "^5.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoaquinBonet/pokedex.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JoaquinBonet/pokedex/issues"
+  },
+  "homepage": "https://github.com/JoaquinBonet/pokedex#readme",
+  "devDependencies": {
+    "eslint": "^7.27.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.23.3"
   }
 }

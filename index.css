@@ -1,30 +1,47 @@
-body .col-10{
+
+
+.container{
+  max-width: 100%;
+}
+
+#titulo{
+  height:40%;
+  width:60%;
+  max-width: 400px;
+    
+}
+
+.row{
+  flex-wrap: nowrap;
+}
+
+
+
+.col-7{
     background-image: URL("https://vader.news/__export/1588965166057/sites/gadgets/img/2020/05/08/2-25193_pokemon-ball-transparent-background-transparent-background-pokeball-png.png_423682103.png");
     background-repeat:no-repeat;
-    background-position:right;
+    background-position: 100% 50%;
     background-attachment: fixed;
-    background-size:contain;
+    background-size: contain;
     opacity:0.5;
+    background-clip: border-box;
+    
 }
 
 .pagination{
-    margin:1%;
+  margin:1% 1%;
+  flex-wrap: wrap;
+  
+    
 }
+
 
 
 .list-group{
-    min-width: 120px;
-    margin-left:5%;
+  min-width: 120px;
+  margin-left:5%;
 }
 
-h1{
-    text-align: center;
-}
-
-ul{
-    position:relative;
-   
-}
 
 
 
@@ -35,4 +52,8 @@ img{
     margin-right: auto;
     object-fit: contain;
     
+}
+
+.oculto{
+  display:none;
 }
