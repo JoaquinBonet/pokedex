@@ -18,7 +18,6 @@ function mostrarTituloPokemon(nombre) {
 function mostrarImagen(imagenes) {
 
     const imagenFrente = document.querySelector("#imagenFrente");
-    const imagenAtras = document.querySelector("#imagenAtras");
     imagenFrente.src = imagenes["front_default"];
     imagenFrente.addEventListener("mouseover", function () {
         imagenFrente.src = imagenes["back_default"];

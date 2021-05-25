@@ -18,24 +18,22 @@ export function mostrarListadoPokemones(pokes) {
         lista.classList = "list-group";
         lista.appendChild(item);
         columna.appendChild(lista);
-        item.addEventListener("click", ()=> clickNuevoPokemon());
-
+        item.addEventListener("click", () => {mostrarPokemon(poke.name), clickNuevoPokemon()});
+    
     });
 }
 
-function clickNuevoPokemon(it){
+function clickNuevoPokemon(){
     const items = document.querySelectorAll(".list-group-item")
-    const modal = document.querySelector(".modal")
-    items.forEach(item => item.addEventListener("click", () => {
+    items.forEach(item => {
         const itemActivo = document.querySelector(".list-group-item.list-group-item-action.active");
         if (itemActivo) {
         itemActivo.classList.remove("active");
         }
         item.classList.add("active");
-        mostrarPokemon(item.dataset.nombre);
 
-    }));
-    
+    });
+
 }
 
 export function crearItemsPaginacion(items) {
